@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-  View
+  View,
+  Text
 } from 'react-native';
 import PhoneSignIn from "./src/PhoneAuth"
 
@@ -8,7 +9,7 @@ import PhoneSignIn from "./src/PhoneAuth"
 const App = () => {
 
   return (
-   <View>
+   <View style={{marginTop:50}}>
      <PhoneSignIn/>
      </View>
   );

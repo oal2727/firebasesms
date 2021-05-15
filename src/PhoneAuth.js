@@ -23,11 +23,11 @@ class PhoneAuthScreen extends Component {
   }
 
   handleSendCode = () => {
-    // Request to send OTP
-    console.log("press button")
+    // Request to send OTP asdad 
+    console.log("send code" + this.state.phone)
     if (this.validatePhoneNumber()) {
         auth()
-        .signInWithPhoneNumber("+51 957727193")
+        .signInWithPhoneNumber(this.state.phone)
         .then(confirmResult => {
           this.setState({ confirmResult })
         })
@@ -89,8 +89,8 @@ class PhoneAuthScreen extends Component {
 
   render() {
     return (
-      <SafeAreaView style={[styles.container, { backgroundColor: '#333' }]}>
-        <View style={styles.page}>
+      <SafeAreaView >
+        <View>
           <TextInput
             style={styles.textInput}
             placeholder='Phone Number with country code'
@@ -101,7 +101,7 @@ class PhoneAuthScreen extends Component {
             }}
             maxLength={15}
           />
-
+          <Text>hola</Text>
           <TouchableOpacity
             style={[styles.themeButton, { marginTop: 20 }]}
             onPress={
@@ -114,6 +114,8 @@ class PhoneAuthScreen extends Component {
             </Text>
           </TouchableOpacity>
 
+
+
           {this.state.confirmResult ? this.renderConfirmationCodeView() : null}
         </View>
       </SafeAreaView>
@@ -124,7 +126,6 @@ class PhoneAuthScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#aaa'
   },
   page: {
     flex: 1,
@@ -139,7 +140,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 5,
     paddingLeft: 10,
-    color: '#fff',
     fontSize: 16
   },
   themeButton: {
